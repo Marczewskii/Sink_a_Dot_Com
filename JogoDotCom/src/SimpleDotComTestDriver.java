@@ -3,15 +3,35 @@ public class SimpleDotComTestDriver {
 
 	public static void main(String[] args) {
 		
-		SimpleDotCom dot = new SimpleDotCom();
+		int numOfGuesses = 0;
 		
-		int[] locations = {2, 3, 4} ;
+		GameHelper helper = new GameHelper();
 		
-		dot.setLocationCells(locations);
+		SimpleDotCom theDotCom = new SimpleDotCom();
 		
-		String userGuess = "500" ; 
+		int randomNum = (int) (Math.random() * 5);
 		
-		dot.checkYourself(userGuess);
+		int[] locations = {randomNum, randomNum+1, randomNum+2};
+		
+		theDotCom.setLocationCells(locations);
+		
+		boolean isLive = true;
+		
+		while (isLive == true) {
+			
+			String guess = helper.getUserInput("Insira um número");
+			
+			String result = theDotCom.checkYourself(guess);
+			
+			numOfGuesses++;
+			
+			if (result.equals("kill")) {
+				
+				isLive = false; 
+				
+				System.out.println("Você usou " + numOfGuesses + " palpites");
+			}
+		}
 
 	}
 
