@@ -10,18 +10,20 @@ public class GameHelper {
 		
 		try {
 			
-			BufferedReader is = new BufferedReader(new InputStream(System.in));
+			BufferedReader is = new BufferedReader(new InputStreamReader(System.in));
 			
 			inputLine = is.readLine();
 			
-			if (inputLine.length() == 0 ) { 
-				return null; 
-			} catch (IOException e) {
-				System.out.println("IOException: " + e);
-			}
+			if (inputLine.length() == 0 ) return null;
 			
-			return null; 
-		
+		} catch (IOException e) {
+			System.out.println("IOException: " + e);
 		}
+		
+		return inputLine;
+		
 	}
+
 }
+			
+			
